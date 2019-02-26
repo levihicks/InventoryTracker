@@ -47,6 +47,13 @@
                 <input type="hidden" name="loggedin" value="True" >
             </form>
         </li>
+                <li>
+           <form action="staff.php" method="post">
+                <input type="submit" value="Staff" >
+                <input type="hidden" name="user" value=<?PHP echo $_POST["user"]; ?> >
+                <input type="hidden" name="loggedin" value="True" >
+            </form>
+        </li>
     </ul>
 
 </body>
