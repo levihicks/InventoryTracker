@@ -1,7 +1,7 @@
 <?PHP
 //Connect to PostgreSQL
-	$dsn="pgsql:host=localhost;dbname=alec.straw"; 
-	$dbuser='alec.straw';
+	$dsn="pgsql:host=localhost;dbname=inventory"; 
+	$dbuser='akstraw';
 	$password = 'abcde';
 	try{
 	        $conn = new PDO($dsn, $dbuser, $password);
