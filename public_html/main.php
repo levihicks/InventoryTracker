@@ -1,12 +1,12 @@
 <html>
 <head>
 <title> Options </title>
+<link rel="stylesheet" href="style.css">
 <?PHP include 'user.php'; ?>
 <?PHP if ($login) : ?>
 <?PHP include 'nav.php'; ?>
 </head>
-<body style="text-align:center;background-color:gray;"
-	  text="white">
+<body>
 
 	<p> Welcome <?php echo $name; ?> </p>
 	<hr>
