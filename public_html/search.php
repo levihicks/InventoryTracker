@@ -2,13 +2,7 @@
 <head>
 <title> Results </title>
 <?PHP include 'nav.php'; ?>
-<style>
-table, th, td {
-    border: 1px solid black;
-	border-collapse: collapse;
-	padding: 10px;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body style="text-align:center;background-color:gray;" text="white">
 
@@ -37,3 +31,4 @@ table, th, td {
  
 </body>
 </html>
+
