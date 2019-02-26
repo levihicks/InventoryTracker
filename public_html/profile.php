@@ -2,13 +2,7 @@
 <head>
 <title> Profile </title>
 <?PHP include 'nav.php'; ?>
-<style>
-table, th, td {
-    border: 1px solid black;
-	border-collapse: collapse;
-	padding: 10px;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body style="text-align:center;background-color:gray;" text="white">
 <h1> Profile </h1>
@@ -39,6 +33,12 @@ include 'user.php';
     </tr>
     <tr>
         <td><b>Position</b></td>
+        <td> <?PHP echo $job ?> </td>
+    </tr>
+</table>
+</body>
+</html>
+osition</b></td>
         <td> <?PHP echo $job ?> </td>
     </tr>
 </table>
