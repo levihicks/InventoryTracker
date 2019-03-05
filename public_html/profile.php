@@ -1,14 +1,15 @@
+<?PHP include 'user.php'; ?>
+<!DOCTYPE html>
 <html>
 <head>
 <title> Profile </title>
 <?PHP include 'nav.php'; ?>
 <link rel="stylesheet" href="style.css">
 </head>
-<body style="text-align:center;background-color:gray;" text="white">
+<body>
 <h1> Profile </h1>
 <hr>
 <?PHP
-include 'user.php';
 // get data
 	$query=null;
 	$query= "SELECT * FROM employees WHERE userid = '$user'";
@@ -38,9 +39,4 @@ include 'user.php';
 </table>
 </body>
 </html>
-osition</b></td>
-        <td> <?PHP echo $job ?> </td>
-    </tr>
-</table>
-</body>
-</html>
+<?PHP exit() ?>

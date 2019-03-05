@@ -1,8 +1,9 @@
+<?PHP include 'user.php'; ?>
+<!DOCTYPE html>
 <html>
 <head>
 <title> Options </title>
 <link rel="stylesheet" href="style.css">
-<?PHP include 'user.php'; ?>
 <?PHP if ($login) : ?>
 <?PHP include 'nav.php'; ?>
 </head>
@@ -15,7 +16,6 @@
 		Item: <input type="text" name="itemName"><br>
 		<input type="submit" value="Search">
 		<input type="hidden" name="user" value=<?PHP echo $_POST["user"]; ?> >
-		<input type="hidden" name="loggedin" value="True" >
 	</form>
 	
 <?PHP endif; ?>
