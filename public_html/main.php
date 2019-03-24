@@ -1,24 +1,29 @@
+
 <?PHP include 'user.php'; ?>
 <!DOCTYPE html>
-<html>
-<head>
-<title> Options </title>
-<link rel="stylesheet" href="style.css">
-<?PHP if ($login) : ?>
-<?PHP include 'nav.php'; ?>
-</head>
-<body>
 
-	<p> Welcome <?php echo $name; ?> </p>
-	<hr>
-	<h3> Search by item </h3>
-	<form action="search.php" method="post">
-		Item: <input type="text" name="itemName"><br>
-		<input type="submit" value="Search">
-		<input type="hidden" name="user" value=<?PHP echo $_POST["user"]; ?> >
-	</form>
-	
-<?PHP endif; ?>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link href="styles/optionsStyle.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
+        <title>Options</title>
+        <?PHP if ($login) : ?>
+        <?PHP include 'nav.php'; ?>
+    </head>
+    <body>
+    	<p> Welcome <?php echo $name; ?> </p>
+    	<hr>
+    	<h3>Search</h3>
+    	<form action="search.php" method="post">
+        <!form onsubmit="window.location.href='Results.html';return false;">
+    		<input type="text" name="itemName" placeholder="Find Item...">
+    		<input type="submit" value="Search">
+    		<input type="hidden" name="user" value=<?PHP echo $_POST["user"]; ?>>
+    		<input type="hidden" name="loggedin" value="True">
+    	</form>
+    <?PHP endif; ?>
 
-</body>
+    </body>
 </html>

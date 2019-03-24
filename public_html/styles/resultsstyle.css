@@ -1,0 +1,111 @@
+html {
+  height: 100%;
+  background: #80c3ff;
+  color: black;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+ul {
+  overflow: auto;
+  margin: 0;
+  padding: 10px 0;
+  background: slategray;
+  height: 30px;
+}
+ul li {
+  height: inherit;
+  display: inline-block;
+  padding: 0 20px;
+}
+ul li form {
+  height: inherit;
+  display: inline-block;
+}
+ul li form input {
+  height: inherit;
+  background: inherit;
+  border: none;
+  color: white;
+}
+ul li:first-child {
+  float: left;
+}
+ul li:first-child form input {
+  font-size: 1.25em;
+  padding: 3px;
+  text-shadow: 2px 2px 2px black;
+}
+ul li:nth-child(2) {
+  float: right;
+}
+ul form:hover {
+  border-bottom: 2px solid white;
+}
+
+h1 {
+  display: block;
+  font-size: 1em;
+}
+
+@media screen and (max-width: 550px){
+	h1{
+		max-width: 100%;
+		overflow-x: auto;
+	}
+}
+
+table, th, td {
+  background: inherit;
+  border-collapse: collapse;
+  padding: 10px 20px;
+  font-weight: lighter;
+}
+
+table {
+  width: 50%;
+}
+table th {
+  border-bottom: 2px solid white;
+}
+
+form input[type=text] {
+  display: inline;
+  background: inherit;
+  border: none;
+  border-bottom: 1px solid gray;
+  font-size: 1em;
+  width: 35%;
+  margin: 10px 0;
+  
+}
+
+@media screen and (max-width: 550px){
+  form input[type=text]{
+    width: 70%;
+  }
+}
+
+hr{
+  margin-top: 0;
+  color: white;
+}
+
+form input[value=Search] {
+  background: whitesmoke;
+  border: none;
+  border-radius: 3px;
+  
+}
+.staffContainer{
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+
+/*# sourceMappingURL=resultsstyle.css.map */

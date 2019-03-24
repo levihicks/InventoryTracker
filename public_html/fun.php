@@ -22,7 +22,7 @@
 		$html .= '</table>';
 		return $html;
 	}
-	
+	//build a dropdown list from and array with a name
 	function build_dropdown($array, $name)
 	{
 		$html = '<form action=\'' . $_SERVER['PHP_SELF'] . '\' method ="post"> ';
@@ -39,7 +39,7 @@
 		$html .= '</select> </form>';
 		return $html;
 	}
-	
+	//query into a one-dimensional array
 	function query_1D_array($query, $conn)
 	{
 		$sqlquery=$conn->prepare($query);
@@ -50,6 +50,7 @@
         }
 		return $array;
 	}
+	// build and precheck boxes for each permission for a single user
 	function permissions_checkbox_form ($uname, $permissions, $conn)
 	{
 		echo '<form action="' . $_SERVER['PHP_SELF'] . '" method="POST">';
@@ -58,7 +59,8 @@
 			$html = $permission . '<input type="checkbox" name="' . $uname . $permission .
 					'" value="' . $uname. $permission . '"';
 			//check if set
-			$query = "SELECT command FROM permissions WHERE employee = '" . $uname . "' AND command = '" . $permission ."'";
+			$query = "SELECT command FROM permissions WHERE employee = '" . $uname .
+					 "' AND command = '" . $permission ."'";
 			$result = (query_1D_array($query, $conn));
 			if ($result){
 				$html .= 'checked="checked"';
