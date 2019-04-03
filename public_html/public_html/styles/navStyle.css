@@ -1,0 +1,67 @@
+ul li:first-child {
+  float: left;
+  width: 30%;
+  min-width: 215px;
+}
+
+ul li:nth-child(2) {
+  float: right;
+  width: 30%;
+  min-width: 215px;
+}
+
+
+#hamburgerMenu{
+  height: 30px;
+  display: none;
+}
+
+
+@media screen and (max-width: 550px) {
+  ul {
+    height: auto;
+    padding: 10px 0;
+  }
+ ul li:first-child, ul li:nth-child(2) {
+    width: 100%; 
+    margin: 0;
+   padding: 0;
+  }
+  
+  ul li:nth-child(2){
+    margin-top: 10px;
+  }
+  
+  
+ #options{
+    display: none;
+ 
+  }
+  ul li:nth-child(2) form{
+    width: 100%;
+    
+  }
+   ul li:nth-child(2) form:last-child{
+    margin-bottom: -10px;
+    
+  }
+  
+  ul li:nth-child(2) input{
+   display: inline-block;
+   width: 100%;
+    padding: 10px 0;
+   border-top: 1px solid white;
+   
+  }
+  #hamburgerMenu {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+  }
+}
+
+
+
+
+
+

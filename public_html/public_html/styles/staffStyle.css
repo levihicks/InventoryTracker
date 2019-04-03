@@ -1,0 +1,14 @@
+body{
+	text-align: center;
+}
+
+#staffSubmit{
+	border: 2px solid white;
+	border-radius: 5px;
+	background-color: lightgreen;
+	padding: 10px;
+}
+
+#staffSubmit:hover{
+	background-color: #4fe34f;
+}
