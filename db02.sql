@@ -9,27 +9,27 @@
 -- location (item, store, dept, section)
 
 -- to drop those tables that have been created earlier
-DROP TABLE location;
-DROP TABLE employs;
-DROP TABLE permissions;
-DROP TABLE sells;
-DROP TABLE stores;
-DROP TABLE items;
-DROP TABLE employees;
+DROP TABLE IF EXISTS location;
+DROP TABLE IF EXISTS employs;
+DROP TABLE IF EXISTS permissions;
+DROP TABLE IF EXISTS sells;
+DROP TABLE IF EXISTS stores;
+DROP TABLE IF EXISTS items;
+DROP TABLE IF EXISTS employees;
 
 -- ============ CREATE TABLE's 
-create table items (
+CREATE TABLE IF NOT EXISTS items (
     upc char(13) PRIMARY KEY,
     whs_count int,
     name varchar (64),
     case_quanity int
 );
-create table stores(
+CREATE TABLE IF NOT EXISTS stores(
     num int PRIMARY KEY,
     city varchar (64),
     addr varchar (64)
 );
-create table sells (
+CREATE TABLE IF NOT EXISTS sells (
     upc char(13),
     store int,
     price decimal(10,2),
@@ -37,26 +37,26 @@ create table sells (
     FOREIGN KEY (upc) REFERENCES items(upc),
     FOREIGN KEY (store) REFERENCES stores(num)
 );
-create table employees(
+CREATE TABLE IF NOT EXISTS employees(
     userid varchar (64) PRIMARY KEY,
     name varchar (64),
     job_title varchar (64),
     pw varchar (64)
 );
-create table employs(
+CREATE TABLE IF NOT EXISTS employs(
     store int,
     employee varchar(64),
     FOREIGN KEY (store) REFERENCES stores(num),
     FOREIGN KEY (employee) REFERENCES employees(userid),
     PRIMARY KEY (store, employee)
 );
-create table permissions (
+CREATE TABLE IF NOT EXISTS permissions (
     employee varchar (64),
     command varchar (64),
     FOREIGN KEY (employee) REFERENCES employees (userid),
     PRIMARY KEY (employee, command)
 );
-create table location (
+CREATE TABLE IF NOT EXISTS location (
     item char(13) REFERENCES items(upc),
     store int,
     dept varchar(64),
