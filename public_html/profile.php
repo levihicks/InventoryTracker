@@ -41,8 +41,10 @@
             <td> <?PHP echo $job ?> </td>
         </tr>
     </tbody></table>
-
-
+        <form action="password.php" method="post">
+            <input type="hidden" value="True" name="passChangeFlag">
+            <input type="submit" value="Change Password">
+        </form>
     </body>
 </html>
 <?PHP exit() ?>

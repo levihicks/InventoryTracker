@@ -23,7 +23,6 @@ if (!isset($_SESSION["loggedin"]))
 	if(!$login)
 	{
 		echo "<div class='loginFailure'>Invalid username/password combination. Please try again.</div>";
-    include 'login.php';
     
 	}
 	else{

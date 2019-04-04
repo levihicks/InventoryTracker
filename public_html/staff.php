@@ -12,5 +12,8 @@
                 <?php
                         include "staffLogic.php";
                 ?>
+            <form action="adduser.php" method="post">
+                <input type="submit" value="Add User">
+            </form>
         </body>
 </html>

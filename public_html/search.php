@@ -32,7 +32,7 @@
     $i;
     for($i = 0; $row = $sqlquery->fetch(); $i++)
     {
-        $items [$i] = array('Item'=>$row[0], 'Price'=>$row[1], 'UPC Number'=>$row[2], 'Store Count'=>$row[3]);
+        $items [$i] = array('UPC'=>$row[0], 'Item'=>$row[1], 'Price'=>$row[2], 'Store Count'=>$row[3]);
     }
 
     
