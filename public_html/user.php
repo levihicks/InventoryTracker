@@ -1,7 +1,8 @@
 <?PHP
 	session_start();
 	//Connect to PostgreSQL
-	$dsn="pgsql:host=localhost;dbname=inventory"; 
+	$dsn="mysql:host=localhost;dbname=Inventory";
+    
 	$dbuser='akstraw';
 	$password = 'abcde';
 	try{
