@@ -16,13 +16,14 @@ DROP TABLE IF EXISTS sells;
 DROP TABLE IF EXISTS stores;
 DROP TABLE IF EXISTS items;
 DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS sales;
 
 -- ============ CREATE TABLE's 
 CREATE TABLE IF NOT EXISTS items (
     upc char(13) PRIMARY KEY,
     whs_count int,
     name varchar (64),
-    case_quanity int
+    case_quantity int
 );
 CREATE TABLE IF NOT EXISTS stores(
     num int PRIMARY KEY,
@@ -31,7 +32,7 @@ CREATE TABLE IF NOT EXISTS stores(
 );
 CREATE TABLE IF NOT EXISTS sells (
     upc char(13),
-    store int,
+    store int REFERENCES store(num),
     price decimal(10,2),
     on_hand int,
     FOREIGN KEY (upc) REFERENCES items(upc),
@@ -44,7 +45,7 @@ CREATE TABLE IF NOT EXISTS employees(
     pw varchar (64)
 );
 CREATE TABLE IF NOT EXISTS employs(
-    store int,
+    store int REFERENCES store(num),
     employee varchar(64),
     FOREIGN KEY (store) REFERENCES stores(num),
     FOREIGN KEY (employee) REFERENCES employees(userid),
@@ -58,11 +59,18 @@ CREATE TABLE IF NOT EXISTS permissions (
 );
 CREATE TABLE IF NOT EXISTS location (
     item char(13) REFERENCES items(upc),
-    store int,
+    store int REFERENCES stores(num),
     dept varchar(64),
     section_num char (8),
     FOREIGN KEY (store) REFERENCES stores (num),
     PRIMARY KEY (store, dept, section_num)
+);
+CREATE TABLE IF NOT EXISTS sales (
+    item char(13) REFERENCES items(upc),
+    store int REFERENCES stores(num),
+    quantity int,
+    time_of_sale DATETIME,
+    sale_ID char(16) PRIMARY KEY
 );
 -- ============ INSERT test data
 
@@ -142,3 +150,7 @@ INSERT INTO location VALUES ('0467264854126', 0002, 'A', '001-005');
 INSERT INTO location VALUES ('0832040179810', 0003, 'C', '001-003');
 INSERT INTO location VALUES ('0302040189887', 0003, 'E', '002-003');
 INSERT INTO location VALUES ('0547896321092', 0003, 'E', '001-001');
+
+INSERT INTO sales VALUES ('0072080149070', 1, 1, NOW(), '0123456789ABCDEF');
+INSERT INTO sales VALUES ('0072080149070', 2, 1, NOW(), '1123456789ABCDE0');
+INSERT INTO sales VALUES ('0072080149070', 3, 1, NOW(), '2123456789ABCDE1');
