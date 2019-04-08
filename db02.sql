@@ -5,7 +5,7 @@
 -- employs (store, employee)
 -- employee (userid, name, job, pw)
 -- permissions (employee, command)
--- commands (name, attribute, change)
+-- sales (sale_ID, item, store, quantity, time_of_sale)
 -- location (item, store, dept, section)
 
 -- to drop those tables that have been created earlier
@@ -66,11 +66,11 @@ CREATE TABLE IF NOT EXISTS location (
     PRIMARY KEY (store, dept, section_num)
 );
 CREATE TABLE IF NOT EXISTS sales (
+    sale_ID char(16) PRIMARY KEY
     item char(13) REFERENCES items(upc),
     store int REFERENCES stores(num),
     quantity int,
     time_of_sale DATETIME,
-    sale_ID char(16) PRIMARY KEY
 );
 -- ============ INSERT test data
 
