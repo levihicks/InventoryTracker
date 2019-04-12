@@ -24,8 +24,9 @@
     $subquery="SELECT name, upc FROM items WHERE
     upper(name) LIKE upper('%" .$_POST["itemName"] ."%')";
     $query="SELECT s1.upc, name, price, on_hand FROM 
-        ( (SELECT * FROM sells WHERE store = $store) s0
-           NATURAL JOIN ($subquery) s1) s1";
+        ( (SELECT * FROM sells WHERE store = $store) as s0
+           NATURAL JOIN ($subquery) as s1)";
+
 //build array
     $sqlquery=$conn->prepare($query);
     $sqlquery->execute();
