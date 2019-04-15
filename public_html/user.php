@@ -14,6 +14,7 @@
 //check login on database
 if (!isset($_SESSION["loggedin"]))
 {
+  //echo "loggedin not set";
 	$user = $_POST["user"];
 	$pass = $_POST["pass"];
 	$query = "SELECT userid, pw FROM employees 
@@ -32,11 +33,13 @@ if (!isset($_SESSION["loggedin"]))
 	}
 }
 else{
+  //echo "loggedin set";
 	$login = $_SESSION["user"];
 	$user = $login;
 }
 if ($login)
 {
+  //echo"login set";
 	//get name
 	$query=null;
 	$query= "SELECT name FROM employees WHERE userid = '$user'";
