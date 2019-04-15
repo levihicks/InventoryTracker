@@ -13,8 +13,16 @@
     <form action="search.php" method="post">
         <!form onsubmit="window.location.href='Results.html';return false;">
     		<input type="text" name="itemName" placeholder="Find Item...">
-    		<input type="submit" value="Search">
-    		<input type="hidden" name="user" value=<?PHP echo $_POST["user"]; ?>>
+		<input type="submit" value="Search">
+		<label>Sort by:</label>
+		<select name="sorts">
+			<option value="relevance">Relevance</option>
+			<option value="price">Price</option>
+			<option value="name">Item Name</option>
+			<option value="on_hand">Quantity</option>
+		</select>
+		
+		<input type="hidden" name="user" value=<?PHP echo $_POST["user"]; ?>>
     		<input type="hidden" name="loggedin" value="True">
     	</form>
      <hr>
@@ -24,9 +32,10 @@
     $subquery="SELECT name, upc FROM items WHERE
     upper(name) LIKE upper('%" .$_POST["itemName"] ."%')";
     $query="SELECT s1.upc, name, price, on_hand FROM 
-        ( (SELECT * FROM sells WHERE store = $store) as s0
+         ((SELECT * FROM sells WHERE store = $store) as s0
            NATURAL JOIN ($subquery) as s1)";
-
+    if($_POST["sorts"]!="relevance")
+    	$query.=" order by " .$_POST["sorts"]. "";
 //build array
     $sqlquery=$conn->prepare($query);
     $sqlquery->execute();
