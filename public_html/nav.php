@@ -25,6 +25,9 @@
                     <input type="submit" value="Staff" >
                 </form>
                 <?PHP endif; ?>
+                <form action="settings.php" method="post">
+                    <input type="submit" value="Settings">
+                </form>
                 <form action="logout.php" method="post">
                     <!form onsubmit="window.location.href='Login.html';return false;">
                     <input type="submit" value="[Log out]">
