@@ -99,6 +99,7 @@
 		for(var i = 0; i < 4; i++) 
 			c=c.parentNode;
 		console.log(c);
+		t.setAttribute("style", "display:none;");
 		c.appendChild(t);
 		submitForm('salesInfo.php');
 	};

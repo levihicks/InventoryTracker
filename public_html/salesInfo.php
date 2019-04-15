@@ -13,7 +13,7 @@
 <?php 
   include 'fun.php';
 include 'user.php';
-    $query = "select * from sales where item = '" .$_POST["test"] ."' and store=1;";
+    $query = "select * from sales where item = '" .$_POST["test"] ."' and store=$store;";
    echo "<h1> Sales History <h1>";
    $sqlquery=$conn->prepare($query);
    $sqlquery->execute();
