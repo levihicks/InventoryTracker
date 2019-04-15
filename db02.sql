@@ -17,6 +17,8 @@ DROP TABLE IF EXISTS stores;
 DROP TABLE IF EXISTS items;
 DROP TABLE IF EXISTS employees;
 DROP TABLE IF EXISTS sales;
+DROP TABLE IF EXISTS emails;
+DROP TABLE IF EXISTS phoneNumbers;
 
 -- ============ CREATE TABLE's 
 CREATE TABLE IF NOT EXISTS items (
@@ -66,11 +68,21 @@ CREATE TABLE IF NOT EXISTS location (
     PRIMARY KEY (store, dept, section_num)
 );
 CREATE TABLE IF NOT EXISTS sales (
-    sale_ID char(16) PRIMARY KEY
     item char(13) REFERENCES items(upc),
     store int REFERENCES stores(num),
     quantity int,
     time_of_sale DATETIME,
+    sale_ID char(16) PRIMARY KEY
+);
+CREATE TABLE IF NOT EXISTS emails (
+	employee varchar(64),
+	email varchar(64),
+	FOREIGN KEY (employee) REFERENCES employees (userid)
+);
+CREATE TABLE IF NOT EXISTS phoneNumbers (
+	employee varchar(64),
+	phoneNumber varchar(12),
+	FOREIGN KEY (employee) REFERENCES employees (userid)
 );
 -- ============ INSERT test data
 

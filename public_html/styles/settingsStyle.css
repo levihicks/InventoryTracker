@@ -1,0 +1,107 @@
+html {
+  height: 100%;
+  background: #80c3ff;
+  color: black;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+ul {
+  overflow: auto;
+  margin: 0;
+  padding: 10px 0;
+  background: slategray;
+  height: 30px;
+}
+ul li {
+  height: inherit;
+  display: inline-block;
+  padding: 0 20px;
+}
+ul li form {
+  height: inherit;
+  display: inline-block;
+}
+ul li form input {
+  height: inherit;
+  background: inherit;
+  border: none;
+  color: white;
+}
+ul li:first-child {
+  float: left;
+}
+ul li:first-child form input {
+  font-size: 1.25em;
+  padding: 3px;
+  text-shadow: 2px 2px 2px black;
+}
+ul li:nth-child(2) {
+  float: right;
+}
+ul form:hover {
+  border-bottom: 2px solid white;
+}
+
+.setting{
+  width: 60%;
+  min-width: 550px;
+  margin: 0 auto;
+}
+
+form {
+  text-align: left;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+}
+
+h2{
+  text-align: left;
+  font-size: 1.1em;
+}
+
+h3{
+  color: white;
+  font-style: italic;
+  font-size: .8em;
+  text-align: left;
+  
+}
+
+label{
+  display: inline-block;
+}
+
+.setting input{
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.setting input[type="text"]{
+  background: inherit;
+  border: none;
+  border-bottom: 1px dotted black;
+}
+
+.setting input[type="submit"]{
+  background: white;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 7px;
+ 
+}
+
+.setting input[value="Remove"]{
+  background: red;
+  color: white;
+}
+
+/*# sourceMappingURL=profilestyle.css.map */
