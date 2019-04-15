@@ -1,14 +1,8 @@
 ul li:first-child {
   float: left;
   width: 30%;
-  min-width: 215px;
 }
 
-ul li:nth-child(2) {
-  float: right;
-  width: 30%;
-  min-width: 215px;
-}
 
 
 #hamburgerMenu{
