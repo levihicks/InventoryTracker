@@ -92,5 +92,9 @@ h1 {
   font-size: 1em;
 }
 
-
+@media screen and (max-width: 550px){
+  label {
+    display: block;
+  }
+}
 /*# sourceMappingURL=optionsstyle.css.map */

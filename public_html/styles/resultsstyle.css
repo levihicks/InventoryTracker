@@ -141,11 +141,25 @@ form input[value=Search] {
   max-width: 100%;
   overflow-x: auto;
 }
-table input {
+table a {
   display: table-cell;
   font-size: .7em;
   vertical-align: middle;
   
+}
+.resultCountContainer{
+  display: inline;
+  
+}
+
+#searchPrev{
+  border: none;
+  border-radius: 10px 0px 0 10px;
+}
+
+#searchNext {
+  border: none;
+  border-radius: 0 10px 10px 0px;
 }
 
 /*# sourceMappingURL=resultsstyle.css.map */

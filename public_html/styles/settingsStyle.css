@@ -104,4 +104,10 @@ label{
   color: white;
 }
 
+@media screen and (max-width: 550px){
+  .setting input[value="Update"]{
+    display: block;
+  }
+}
+
 /*# sourceMappingURL=profilestyle.css.map */

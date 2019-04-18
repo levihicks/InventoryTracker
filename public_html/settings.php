@@ -16,7 +16,8 @@
         
           <hr>
           <h2>Low Stock Notifications</h2>
-          <h3>Receive notifications at your email and/or phone via text. (Standard messaging rates may apply)</h3>
+          <h3>Receive notifications at your email and/or phone via text. 
+          <br>(Standard messaging rates may apply)</h3>
           <form id="emailNotificationForm" method="post">
             <label>E-mail:</label>
             <?php
