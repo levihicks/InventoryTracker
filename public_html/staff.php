@@ -16,7 +16,21 @@
                     <input type="submit" value="Submit" name="removeSubmit2">
                 </form>
             <?php elseif ( isset($_POST["removeSubmit2"]) ) :
-                echo "<p> Submitted </p>";
+                try{
+                    $query = "DELETE FROM employs WHERE employee = ?";
+                    $statement=$conn->prepare($query);
+                    $statement->execute([ $_POST["removedUser"] ]);
+                    $query = "DELETE FROM employees WHERE userid = ?";
+                    $statement=$conn->prepare($query);
+                    $statement->execute([ $_POST["removedUser"] ]);
+                    if($statement->rowCount() > 0)
+                        echo "<p> Submitted </p>";
+                    else
+                        echo "<p>Invalid Username</p>";
+                }
+                catch (PDOException $e){
+                    echo "Invalid: " .$e;
+                }
             ?>
             <?php else :  //if not removing user
                     echo "<p>Select Store</p>";
@@ -26,6 +40,7 @@
                 <form action="adduser.php" method="post">
                     <input type="submit" value="Add User">
                 </form>
+                <br>
                 <form action="staff.php" method="post">
                     <input type="submit" value="Remove User" name="removeSubmit">
                 </form>

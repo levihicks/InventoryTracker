@@ -59,11 +59,10 @@ if ($login)
 	$query = "SELECT command FROM permissions WHERE employee = '$user'";
 	$sqlquery=$conn->prepare($query);
 	$sqlquery->execute();
-	$i = 0;
+    $user_permissions = array ("set price"=>"","set count"=>"","staff"=>"");
 	while($row = $sqlquery->fetch())
 	{
-		$arrayCmds[$i] = $row[0];
-		$i++;
+		$user_permissions[$row[0]] = "true";
 	}
 	
 }

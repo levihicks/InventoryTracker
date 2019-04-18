@@ -19,9 +19,12 @@
                <form action="profile.php" method="post">
                 <!form onsubmit="window.location.href='Profile.html';return false;"> 
                     <input type="submit" value="Profile">
-                <?PHP if ( array_search("staff", $arrayCmds) !== False ) :?>
                 </form>
-                    <form action="staff.php" method="post">
+               <form action="stores.php" method="post">
+                    <input type="submit" value="Stores" >
+                </form>
+                <?PHP if ( $user_permissions["staff"] == "true" ) /*Check permission */:?>
+                <form action="staff.php" method="post">
                     <input type="submit" value="Staff" >
                 </form>
                 <?PHP endif; ?>
