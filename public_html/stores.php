@@ -14,24 +14,24 @@
     <h1> Stores </h1>
     <hr>
     <?PHP
-// get data
+    //table of stores
+    // get data
     $query=null;
     $query= "SELECT * FROM stores ORDER BY num";
     $sqlquery=$conn->prepare($query);
     $sqlquery->execute();
-//display data
+    //display data
     include 'fun.php';
     $i;
     for($i = 0; ($row = $sqlquery->fetch()); $i++)
     {
         $stores [$i] = array('Number'=>$row[0], 'City'=>$row[1], 'Address'=>$row[2]);
     }
-    echo build_table($stores);
-?>
-
-<?PHP if ( $user_permissions["staff"] == "true" ) /*Check permission */:?>
-    <form action="stores.php" method="post">
-        <input type="submit" value="Add Store" >
+        echo build_table($stores);
+        
+if ( $user_permissions["staff"] == "true" ) /*Check permission */:?>
+    <form action="editStores.php" method="post">
+        <input type="submit" value="Add/Remove Store" name="editStore">
     </form>
 <?PHP endif; ?>
 
