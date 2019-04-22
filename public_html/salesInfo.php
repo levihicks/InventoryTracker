@@ -41,9 +41,9 @@
         $items [$i] = array('UPC'=>$row[0], 'Store'=>$row[1], 'Quantity'=>$row[2], 'Time of Sale'=>$row[3], 'Sale ID'=>$row[4]);
     }
     if($i!=0){
-      echo "<h1>Charts</h1><img id=\"weekImg\" src=\"./images/".$_SESSION["test"]."store".$store."week\">
-                           <img id=\"monthImg\" src=\"./images/".$_SESSION["test"]."store".$store."month\">
-                           <img id=\"yearImg\" src=\"./images/".$_SESSION["test"]."store".$store."year\">";
+      echo "<h1>Charts</h1><img id=\"weekImg\" src=\"http://3.16.210.106/~robert/images/".$_SESSION["test"]."store".$store."week.png\">
+                           <img id=\"monthImg\" src=\"http://3.16.210.106/~robert/images/".$_SESSION["test"]."store".$store."month.png\">
+                           <img id=\"yearImg\" src=\"http://3.16.210.106/~robert/images/".$_SESSION["test"]."store".$store."year.png\">";
       echo"<br>";
       echo "<a id=\"weekImgLink\" href='#'>Past Week</a><a  id=\"monthImgLink\" href='#'>Past Month</a><a  id=\"yearImgLink\" href='#'>Past Year</a>";
     }

@@ -72,7 +72,7 @@ def getChart(upc, storeNum, periodLen, periodStr):
 	plt.xlabel("Date")
 	plt.ylabel("Amount Sold")
 	plt.title("Daily Sales for the "+periodStr.capitalize()+" of "+dayStrings[0]+" through "+dayStrings[periodLen-1])
-	plt.savefig("./public_html/images/"+upc+"store"+storeNum+periodStr+".png")
+	plt.savefig("/home/robert/public_html/images/"+upc+"store"+storeNum+periodStr+".png")
 	poppedLine.remove()
 	del poppedLine
 

@@ -29,7 +29,7 @@
                 </form>
                 <?PHP endif; ?>
                 <form action="settings.php" method="post">
-                    <input type="submit" value="Settings">
+                    <input type="submit" value="Notifications">
                 </form>
                 <form action="logout.php" method="post">
                     <!form onsubmit="window.location.href='Login.html';return false;">
