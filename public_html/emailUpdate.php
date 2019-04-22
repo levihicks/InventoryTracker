@@ -15,5 +15,7 @@
     echo $query2 = "insert into emails values('$user', '" .$_POST["emailInput"] ."');";
   $sqlquery2=$conn->prepare($query2);
   $sqlquery2->execute();
+  $_SESSION["emailUpdated"]=true;
+  shell_exec("java -cp \".:mail.jar:activation-1.1.jar:\" EmailConfirmSend ".$_POST["emailInput"]."");
   header("location:settings.php");
   ?>

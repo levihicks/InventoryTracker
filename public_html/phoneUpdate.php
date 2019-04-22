@@ -15,5 +15,9 @@
     echo $query2 = "insert into phoneNumbers values('$user', '" .$_POST["phoneInput"] ."');";
   $sqlquery2=$conn->prepare($query2);
   $sqlquery2->execute();
+  
+
+  $_SESSION["phoneUpdated"]=true;
+  shell_exec("java -cp \".:twilioJar.jar:\" MessageConfirmSend ".$_POST["phoneInput"]."");
   header("location:settings.php");
-  ?>
+?>

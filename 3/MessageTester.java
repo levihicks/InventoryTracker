@@ -51,17 +51,31 @@ public class MessageTester{
                 	while(rs.next()){
                         try {
                         Statement stmt2 = connection.createStatement();
-                        String sql2 = "select * from items as s1 natural join (select * from sells where "+
-                                  "store = (select store from employs where employee='"+
-                                  rs.getString("employee")+"' limit 1) and on_hand<5) as s2";
+                        String sql2 = " select sum(quantity) as total from sales where store = (select store from employs where employee='"+rs.getString("employee")+
+                                        "' limit 1) and date(time_of_sale)=(date(now()) - interval 1 day);";
                         ResultSet rs2 = stmt2.executeQuery(sql2);
-                        String textMsg = "The following items are low in stock and need to be "+
+                        rs2.next();
+                        String textMsg = "Total Items Sold: "+((rs2.getString("total")!=null)?rs2.getString("total"):"0")+"\n";
+                        Statement stmt3 = connection.createStatement();
+                        String sql3 = "select * from items as s1 natural join (select * from sells where "+
+                                  "store = (select store from employs where employee='"+
+                                  rs.getString("employee")+"' limit 1) and (on_hand/((select sum(quantity) from sales where "+
+                                  "item=upc and time_of_sale>date(now()) - interval 7 day and store = (select store from "+
+                                  "employs where employee='"+rs.getString("employee")+"'))/168)<168)) as s2";
+
+
+                        ResultSet rs3 = stmt3.executeQuery(sql3);
+                        textMsg += "The following items are estimated to run out of stock this week and may need to be "+
                                   "replaced soon:\n";
-                        while(rs2.next()){
-                            String itemName = rs2.getString("name");
-                            String upc = rs2.getString("upc");
-                            String on_hand = rs2.getString("on_hand");
-                            textMsg+=itemName + " UPC: " + upc + " ("+on_hand+" left.)\n";
+                        int i = 1;
+                        while(rs3.next()){
+                            String itemName = rs3.getString("name");
+                            String upc = rs3.getString("upc");
+                            String on_hand = rs3.getString("on_hand");
+                            textMsg+=i+". "+itemName + " UPC: " + upc + " ("+on_hand+" left.)\n";
+                        }
+                        if(i==1){
+                            textMsg+="None.";
                         }
 
 
