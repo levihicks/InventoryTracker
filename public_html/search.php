@@ -77,7 +77,7 @@
   if ($_SESSION["searchIndex"]!=0){
     echo "<button id=\"searchPrev\">Prev</button>";
   }
-  echo "<div class=\"resultCountContainer\">Showing results " .($_SESSION["searchIndex"]+1)."-"
+  echo "<div class=\"resultCountContainer\">Showing results " .(($i==0)?$i:$_SESSION["searchIndex"]+1)."-"
   .(($_SESSION["searchIndex"])+$i)." out of ".$_SESSION["resultCount"]."</div>";
   if($_SESSION["resultCount"] > ($_SESSION["searchIndex"]+$rpp)){
     echo  "<button id=\"searchNext\">Next</button>";

@@ -110,4 +110,13 @@ label{
   }
 }
 
+.updateSuccess{
+  background: lightgreen;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 5px;
+  display: inline-block;
+  width: auto;
+}
+
 /*# sourceMappingURL=profilestyle.css.map */

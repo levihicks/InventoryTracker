@@ -89,10 +89,16 @@ h1 {
 }
 
 @media screen and (max-width: 550px){
-	h1{
+	h1, #resultsForm{
 		max-width: 100%;
 		overflow-x: auto;
 	}
+ #resultsForm, #salesForm{
+      font-size: .6em;
+  }
+  img{
+    max-width: 95%;
+  }
 }
 
 table, th, td {
@@ -147,6 +153,15 @@ table a {
   vertical-align: middle;
   
 }
+
+img{
+  border: 2px solid black;
+}
+
+#monthImgLink, #yearImgLink {
+  margin-left: 5px;
+}
+
 .resultCountContainer{
   display: inline;
   
