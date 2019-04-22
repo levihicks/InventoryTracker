@@ -126,12 +126,23 @@ form input[type=text] {
   
 }
 
+form[action="adduser.php"]{
+  clear: both;
+}
+
 input[type=textbox],input[type=password]{
   background: inherit;
   border: none;
   border-bottom: 2px dotted black;
   margin-bottom: 10px;
   margin-left: 5px;
+}
+
+@media screen and (max-width: 550px){
+  input[type=textbox], input[type=password]{
+    display: block;
+    margin-left: 0;
+  }
 }
 
 select[name="Store"]{
