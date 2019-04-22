@@ -10,9 +10,12 @@
         <?PHP include 'nav.php'; ?>
     </head>
     <body>
-
+<form action="stores.php" method="post">
+        <input type="submit" value="Back">
+    </form>
     <h1> Stores </h1>
     <hr>
+    
     <?PHP if ( !( isset($_POST["removeStore"]) || isset($_POST["addStore"]) || isset($_POST["removeStoreFinal"]) ) ) : ?>
         <h3>Remove Store</h3>
         <form action="editStores.php" method="post">
@@ -67,9 +70,7 @@
         }
     ?>
 
-    <form action="stores.php" method="post">
-        <input type="submit" value="Back">
-    </form>
+    
     </body>
 </html>
 <?PHP exit() ?>

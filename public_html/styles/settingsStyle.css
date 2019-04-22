@@ -111,11 +111,8 @@ label{
 }
 
 .updateSuccess{
-  background: lightgreen;
-  border: 2px solid white;
-  border-radius: 10px;
-  padding: 5px;
-  display: inline-block;
+  color: #99ff99;
+  display: block;
   width: auto;
 }
 

@@ -82,7 +82,7 @@
         {
         	  var form = document.getElementById('emailNotificationForm');
         	  var emailInput = document.querySelector("input[name=emailInput]");
-            if(emailRegex.test(emailInput.value)){
+            if(emailRegex.test(emailInput.value) || action=='emailRemove.php'){
               document.getElementById('emailNotificationForm').action = action;
               document.getElementById('emailNotificationForm').submit();
             }
@@ -100,7 +100,7 @@
         {
           var form = document.getElementById('phoneNotificationForm');
         	var phoneInput = document.querySelector("input[name=phoneInput]");
-          if(phoneRegex.test(phoneInput.value)){
+          if(phoneRegex.test(phoneInput.value) || action=='phoneRemove.php'){
         	  phoneInput.value = "+1"+phoneInput.value;
             form.action = action;
             form.submit();

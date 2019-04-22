@@ -73,6 +73,31 @@ table tr {
   border-bottom: 1px solid whitesmoke;
 }
 
+input[type=password], input[type=textbox]{
+  background: inherit;
+  border: none;
+  border-bottom: 1px dotted black;
+  margin-bottom: 10px;
+}
+
+input[value="Submit"]{
+  background: white;
+  border-radius: 5px;
+}
+
+input[value="Back"]
+{
+  float: left;
+  margin: 10px;
+  background: white;
+  border-radius: 5px;
+}
+
+h1{
+  clear: both;
+}
+
+
 b {
   font-weight: bold;
 }

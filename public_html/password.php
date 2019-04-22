@@ -11,9 +11,11 @@
         </head>
         <body>
         <?PHP if ( !isset($_POST["oldPass"]) ): /*if nothing submitted yet*/?>
-            <form action="<?PHP $_SERVER['PHP_SELF'] ?>" method="post">
+            <form action="<?PHP $_SERVER['PHP_SELF'] ?>" method="post" style="margin: 0 auto; text-align: left; margin-top: 10px; width: 30%;">
                 Enter Old Password<input type="password" name="oldPass">
+                <br>
                 Enter New Password<input type="password" name="newPass1">
+                <br>
                 Enter Again<input type="password" name="newPass2">
                 <input type="submit" value="Submit">
             </form>

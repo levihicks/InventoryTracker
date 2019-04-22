@@ -8,8 +8,11 @@
 		<?PHP include 'nav.php'; ?>
 	</head>
         <body>
+            <form action="staff.php" method="post">
+              <input type="submit" value="Back">
+            </form>
           <?PHP if ( !isset($_POST["submit"]) ) : ?>
-            <form action="adduser.php" method="post">
+            <form action="adduser.php" method="post" style="margin: 0 auto; text-align: left; margin-top: 10px; width: 30%;">
                 Position<input type="textbox" name="Position" ><br>
                 Name<input type="textbox" name="Name" ><br>
                 Username<input type="textbox" name="Uname" ><br>
@@ -60,8 +63,6 @@
                 }
             ?>
             <?PHP endif; ?>
-            <form action="staff.php" method="post">
-                    <input type="submit" value="Back">
-            </form>
+            
         </body>
 </html>
