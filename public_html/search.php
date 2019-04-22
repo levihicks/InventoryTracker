@@ -12,7 +12,8 @@
     <body>
     <form id="searchForm" action="search.php" method="post">
         <!form onsubmit="window.location.href='Results.html';return false;">
-    		<input type="text" name="itemName" placeholder="Find Item...">
+    		<input type="text" name="itemName" placeholder="Find Item..."
+         value="<?php echo $_POST['itemName']; ?>">
 		<input type="submit" value="Search">
 		<label>Sort by:</label>
 		<select name="sorts">
