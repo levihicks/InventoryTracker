@@ -60,7 +60,7 @@ def getChart(upc, storeNum, periodLen, periodStr):
 	dayStrings = dayStrings[::-1]
 	quantities = list(map(getValue, periodData))
 	quantities = quantities[::-1]
-	plt.ylim(0, max(quantities))
+	plt.ylim(min(quantities)-3 if min(quantities)-3>0 else 0, max(quantities)+3)
 	line=plt.plot(dayStrings, quantities)
 	xticks = plt.gca().xaxis.get_major_ticks()
 
