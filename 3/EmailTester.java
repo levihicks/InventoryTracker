@@ -71,7 +71,22 @@ public class EmailTester{
                                         "' limit 1) and date(time_of_sale)=(date(now()) - interval 1 day);";
                         ResultSet rs2 = stmt2.executeQuery(sql2);
                         rs2.next();
-                        String emailMsg = "Total Items Sold: "+((rs2.getString("total")!=null)?rs2.getString("total"):"0")+"\n";
+                        String emailMsg = "Total Items Sold (Past 24 hours): "+((rs2.getString("total")!=null)?rs2.getString("total"):"0")+"\n";
+
+                        Statement stmt4 = connection.createStatement();
+                        String sql4 = " select sum(quantity) as total from sales where store = (select store from employs where employee='"+rs.getString("employee")+
+                                        "' limit 1) and date(time_of_sale)>(date(now()) - interval 7 day);";
+                        ResultSet rs4 = stmt2.executeQuery(sql4);
+                        rs4.next();
+                        emailMsg += "Total Items Sold (Past Week): "+((rs4.getString("total")!=null)?rs4.getString("total"):"0")+"\n";
+
+                        Statement stmt5 = connection.createStatement();
+                        String sql5 = " select sum(quantity) as total from sales where store = (select store from employs where employee='"+rs.getString("employee")+
+                                        "' limit 1) and date(time_of_sale)>(date(now()) - interval 31 day);";
+                        ResultSet rs5 = stmt2.executeQuery(sql5);
+                        rs5.next();
+                        emailMsg += "Total Items Sold (Past Month): "+((rs5.getString("total")!=null)?rs5.getString("total"):"0")+"\n";
+
 						Statement stmt3 = connection.createStatement();
 						String sql3 = "select * from items as s1 natural join (select * from sells where "+
                                   "store = (select store from employs where employee='"+

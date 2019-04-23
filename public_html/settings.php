@@ -101,7 +101,7 @@
           var form = document.getElementById('phoneNotificationForm');
         	var phoneInput = document.querySelector("input[name=phoneInput]");
           if(phoneRegex.test(phoneInput.value) || action=='phoneRemove.php'){
-        	  phoneInput.value = "+1"+phoneInput.value;
+        	  //phoneInput.value = "+1"+phoneInput.value;
             form.action = action;
             form.submit();
            }
