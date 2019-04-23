@@ -11,11 +11,9 @@
         </head>
         <body>
         <?PHP if ( !isset($_POST["oldPass"]) ): /*if nothing submitted yet*/?>
-            <form action="<?PHP $_SERVER['PHP_SELF'] ?>" method="post" style="margin: 0 auto; text-align: left; margin-top: 10px; width: 30%; min-width: 200px">
+            <form action="<?PHP $_SERVER['PHP_SELF'] ?>" method="post">
                 Enter Old Password<input type="password" name="oldPass">
-                <br>
                 Enter New Password<input type="password" name="newPass1">
-                <br>
                 Enter Again<input type="password" name="newPass2">
                 <input type="submit" value="Submit">
             </form>
@@ -25,7 +23,7 @@
             //get old password, note $login is retrieved from database in user.php
             $oldPassReal = query_1D_array("SELECT pw FROM employees WHERE userid = '$login'", $conn);
             $fail = False;
-            if( $_POST["oldPass"] != $oldPassReal[0]){
+            if( !password_verify($_POST["oldPass"], $oldPassReal[0])){
                 echo "Entered Wrong Password\r\n";
                 $fail = True;
             }
@@ -38,7 +36,8 @@
             {
                 $query = "UPDATE employees SET pw = ? WHERE userid = ?";
                 $sqlquery=$conn->prepare($query);
-                $sqlquery->execute([$_POST["newPass1"], $login]);
+                $hash = password_hash($_POST["newPass1"], PASSWORD_DEFAULT);
+                $sqlquery->execute([ $hash, $login ]);
                 echo "<p>Password changed!\r\n</p>";
             }
             ?>

@@ -16,13 +16,15 @@ if (!isset($_SESSION["loggedin"]))
 {
   //echo "loggedin not set";
 	$user = $_POST["user"];
-	$pass = $_POST["pass"];
-	$query = "SELECT userid, pw FROM employees 
-	WHERE userid = ? AND pw = ?";
+    $pass = $_POST["pass"];
+	$query = "SELECT userid, pw FROM employees
+    WHERE userid = ?";
+	//WHERE userid = ? AND pw = ?";
     $sqlquery=$conn->prepare($query);
-    $sqlquery->execute([$user, $pass]);
+    $sqlquery->execute([$user]);//, $pass]);
 	$login = $sqlquery->fetch();
-	if(!$login)
+	//if(!$login)
+    if(!password_verify($pass, $login[1]))
 	{
 		echo "<div class='loginFailure'>Invalid username/password combination. Please try again.</div>";
     

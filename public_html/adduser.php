@@ -8,11 +8,8 @@
 		<?PHP include 'nav.php'; ?>
 	</head>
         <body>
-            <form action="staff.php" method="post">
-              <input type="submit" value="Back">
-            </form>
           <?PHP if ( !isset($_POST["submit"]) ) : ?>
-            <form action="adduser.php" method="post" style="margin: 0 auto; text-align: left; margin-top: 10px; width: 30%;">
+            <form action="adduser.php" method="post">
                 Position<input type="textbox" name="Position" ><br>
                 Name<input type="textbox" name="Name" ><br>
                 Username<input type="textbox" name="Uname" ><br>
@@ -47,10 +44,13 @@
                 //if none missing then try to add user
                 if ($missing !== true){
                     try{
+                        //$salt = '$2a$07$j5hDeFgAqeDcGf39KloKm$';
+                        //$encryption = crypt($_POST["Password"], $salt); //encryption
+                        $encryption = password_hash($_POST["Password"], PASSWORD_DEFAULT);
                         $query = "INSERT INTO employees VALUES (?, ?, ?, ?)";
                         $sqlquery=$conn->prepare($query);
                         $sqlquery->execute([ $_POST["Uname"], $_POST["Name"],
-                                            $_POST["Position"], $_POST["Password"] ]);
+                                            $_POST["Position"], $encryption ]);
                         $query = "INSERT INTO employs VALUES (?, ?);";
                         $sqlquery=$conn->prepare($query);
                         $sqlquery->execute([ $_POST["Store"], $_POST["Uname"] ]);
@@ -63,6 +63,8 @@
                 }
             ?>
             <?PHP endif; ?>
-            
+            <form action="staff.php" method="post">
+                    <input type="submit" value="Back">
+            </form>
         </body>
 </html>
