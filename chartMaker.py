@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import datetime as dt
 from datetime import timedelta
 import matplotlib.dates as mdates
-
+import threading
 import mysql.connector
 import sys
 
@@ -35,7 +35,16 @@ def generateCharts():
 	for r in results:
 		getChart(r[0], str(r[1]), 365, "year")
 	
-	
+
+def getSalesPerDay(periodData, allData, i):
+	current = (dt.date.today() - timedelta(days=i))
+	periodData.append({current:0})
+	for d in allData:
+		day = dt.datetime.strptime(d["dateString"], "%Y-%m-%d").date()
+		if(day == current):
+			periodData[i][current]+=d["quantity"]
+		elif(day < current):
+			break
 		
 
 def getChart(upc, storeNum, periodLen, periodStr):
@@ -46,14 +55,9 @@ def getChart(upc, storeNum, periodLen, periodStr):
 	for r in results:
 		allData.append({"dateString": str(r[3]).split()[0], "quantity": r[2]})
 	for i in range(periodLen):
-		current = (dt.date.today() - timedelta(days=i))
-		periodData.append({current:0})
-		for d in allData:
-			day = dt.datetime.strptime(d["dateString"], "%Y-%m-%d").date()
-			if(day == current):
-				periodData[i][current]+=d["quantity"]
-			elif(day < current):
-				break
+		t = threading.Thread(target=getSalesPerDay, args=(periodData,allData,i))
+		t.start()
+		#getSalesPerDay(periodData, allData, i)
 	dayStrings = list(map(toStr,map(getKeys, periodData)))
 	if(periodStr=="week"):
 		dayStrings = list(map(cutYear, dayStrings))
