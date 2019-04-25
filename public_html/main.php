@@ -26,11 +26,11 @@
 		<select name="sorts">
 			<option value="relevance">Relevance</option>
 			<option value="price asc">Price (Low to High)</option>
-      <option value="price desc">Price (High to Low)</option>
+            <option value="price desc">Price (High to Low)</option>
 			<option value="name asc">Item Name (Ascending)</option>
-      <option value="name desc">Item Name (Descending)</option>
+            <option value="name desc">Item Name (Descending)</option>
 			<option value="on_hand asc">Quantity (Low to High)</option>
-      <option value="on_hand desc">Quantity (High to Low)</option>
+            <option value="on_hand desc">Quantity (High to Low)</option>
 		</select>
 		
 		<input type="hidden" name="user" value=<?PHP echo $_POST["user"]; ?>>

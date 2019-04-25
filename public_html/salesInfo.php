@@ -68,7 +68,6 @@
   
 ?>
 <script>
-
   var weekImg = document.getElementById("weekImg");
   var monthImg = document.getElementById("monthImg");
   var yearImg = document.getElementById("yearImg");

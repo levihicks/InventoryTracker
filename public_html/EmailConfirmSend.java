@@ -1,5 +1,3 @@
-
-
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.util.*;
@@ -22,21 +20,21 @@ public class EmailConfirmSend{
 				return new PasswordAuthentication(username, password);
 			}
 		  });
-	String emailMsg = "You will now receive daily inventory reports from Inventory Tracker via e-mail.";
-	try{
-	 Message message = new MimeMessage(session);
-		message.setFrom(new InternetAddress("from-email@gmail.com"));
-		message.setRecipients(Message.RecipientType.TO,
-			InternetAddress.parse(args[0]));
-		message.setSubject("Confirmation");
-		message.setText(emailMsg);
+		String emailMsg = "You will now receive daily inventory reports from Inventory Tracker via e-mail.";
+		try{
+		 Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("from-email@gmail.com"));
+			message.setRecipients(Message.RecipientType.TO,
+				InternetAddress.parse(args[0]));
+			message.setSubject("Confirmation");
+			message.setText(emailMsg);
 
-		Transport.send(message);
+			Transport.send(message);
 
-		System.out.println("Done");
+			System.out.println("Done");
 
-	} catch (MessagingException e) {
-		throw new RuntimeException(e);
-	}
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }
